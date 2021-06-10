@@ -33,18 +33,15 @@ export class Paginate extends PureComponent {
 		const data = this.state.orgtableData;
 
 
-		this.setState({
+		let slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
 
-			
+        
+		this.setState({
+			pageCount: Math.ceil(data.length / this.state.perPage),
+			tableData:slice
 		})
 
-        //this.setState({
-        //    isLoading: false,
-      //      articles: [],
-       //     errorMessage: err.response.data.message
-       //   })
-      //  }
-      //  )}
+        
 	
     }
     componentDidMount(){
